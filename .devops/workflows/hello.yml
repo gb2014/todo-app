@@ -1,9 +1,0 @@
-name: Hello Workflow
-on:
-  push:
-jobs:
-  hello:
-    runs-on: windows-latest
-    steps:
-      - name: Print message
-        run: echo "Pipeline is working"
