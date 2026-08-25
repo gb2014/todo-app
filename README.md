@@ -16,3 +16,5 @@ The conflict occurred because both feature/add-title and feature/add-footer modi
 I resolved the conflict by manually editing index.html, removing the conflict markers, and keeping both the title change and the footer section.
 
 Changes made from cloned app
+
+#added action file
