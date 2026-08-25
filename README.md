@@ -18,3 +18,5 @@ I resolved the conflict by manually editing index.html, removing the conflict ma
 Changes made from cloned app
 
 #added action file
+
+#checking action flow file change scenario
