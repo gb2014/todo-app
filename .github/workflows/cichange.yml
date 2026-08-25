@@ -47,17 +47,18 @@ jobs:
       - name: Verify application title
         run: grep "Todo App" index.html
 
-deploy:
-  needs: test
-  runs-on: ubuntu-latest
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
 
-  if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
 
-  environment:
-    name: staging
+    environment:
+      name: staging
 
-  steps:
-    - name: Deploy
-      run: echo "Deploying with token: ${{ secrets.DEPLOY_TOKEN }}"
-
-        
+    steps:
+      - name: Deploy
+        run: |
+          echo "Deploying with token ${{
+          secrets.DEPLOY_TOKEN
+          }}"
