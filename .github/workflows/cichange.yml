@@ -1,6 +1,6 @@
 name: CI
  <!-- test -->
- 
+
 on:
   push:
     branches:
@@ -39,12 +39,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
 
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: todo-app-build
+          path: index.html
+
       - name: Install HTML Validator
         run: npm install -g html-validator-cli
 
       - name: Validate HTML
         run: html-validator --file index.html
+        
+  verify-articraft:
+    needs: build
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: todo-app-build
   test:
     needs: build
     runs-on: ubuntu-latest
