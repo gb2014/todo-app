@@ -8,6 +8,9 @@ VALUES (2, 'Bob', 'bob@example.com');
 INSERT INTO USERS (id, name, email)
 VALUES (3, 'Charlie', 'charlie@example.com');
 
+INSERT INTO USERS (id, name, email)
+VALUES (4, 'David', 'david@example.com');
+
 -- Todos
 INSERT INTO TODOS
 VALUES (1, 1, 'Finish report', 'OPEN', SYSDATE - 1);
