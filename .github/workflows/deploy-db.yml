@@ -1,0 +1,43 @@
+name: Deploy Database
+
+on:
+  push:
+    paths:
+      - 'db/**'
+
+jobs:
+  deploy-db:
+    runs-on: ubuntu-latest
+
+    env:
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install SQLcl
+        run: |
+          wget https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip
+          unzip sqlcl-latest.zip
+          echo "$PWD/sqlcl/bin" >> $GITHUB_PATH
+
+      - name: Run schema.sql
+        run: |
+          sql ${DB_USER}/${DB_PASSWORD}@${DB_HOST} @db/schema.sql
+
+      - name: Run seed.sql
+        run: |
+          sql ${DB_USER}/${DB_PASSWORD}@${DB_HOST} @db/seed.sql
+
+      - name: Run verify.sql
+        run: |
+          sql ${DB_USER}/${DB_PASSWORD}@${DB_HOST} @db/verify.sql
