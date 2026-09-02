@@ -20,3 +20,40 @@ Changes made from cloned app
 #added action file
 
 #checking action flow file change scenario
+
+
+## Database Setup
+
+### Prerequisites
+
+- Oracle Database
+- SQLcl installed and available on PATH
+
+### Steps
+
+1. Create the database schema:
+
+```bash
+sql username/password@host @db/schema.sql
+```
+
+2. Seed the database:
+
+```bash
+sql username/password@host @db/seed.sql
+```
+
+3. Verify the data:
+
+```bash
+sql username/password@host @db/verify.sql
+```
+
+### Verification
+
+The verification script prints:
+
+- Number of rows in `USERS`
+- Number of rows in `TODOS`
+
+If both counts match the expected seeded data, the setup was successful.
