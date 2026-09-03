@@ -47,16 +47,16 @@ jobs:
 
       - name: Test Connection
         run: |
-          sql ${DB_USER}/${DB_PASSWORD}@{DB_SERVICE}
+          sql ${DB_USER}/${DB_PASSWORD}@geetha_high
 
       - name: Run schema.sql
         run: |
-          sql ${DB_USER}/${DB_PASSWORD}@${DB_SERVICE} @db/schema.sql
+          sql ${DB_USER}/${DB_PASSWORD}@geetha_high @db/schema.sql
 
       - name: Run seed.sql
         run: |
-          sql ${DB_USER}/${DB_PASSWORD}@${DB_SERVICE} @db/seed.sql
+          sql ${DB_USER}/${DB_PASSWORD}@geetha_high @db/seed.sql
 
       - name: Run verify.sql
         run: |
-          sql ${DB_USER}/${DB_PASSWORD}@${DB_SERVICE} @db/verify.sql
+          sql ${DB_USER}/${DB_PASSWORD}@geetha_high @db/verify.sql
