@@ -40,7 +40,11 @@ jobs:
       - name: Configure Wallet
         run: |
           echo "TNS_ADMIN=$PWD/wallet" >> $GITHUB_ENV
-          
+      
+      - name: Check Wallet Files
+        run: |
+          ls -la wallet
+
       - name: Test Connection
         run: |
           sql ${DB_USER}/${DB_PASSWORD}@mydb_high "select sysdate from dual;"
