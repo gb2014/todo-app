@@ -33,6 +33,17 @@ jobs:
         run: |
           which sql
           sql -version
+      - name: Extract Wallet
+        run: |
+          echo "${{ secrets.DB_WALLET }}" | base64 -d > wallet.zip
+          unzip wallet.zip -d wallet
+      - name: Configure Wallet
+        run: |
+          echo "TNS_ADMIN=$PWD/wallet" >> $GITHUB_ENV
+          
+      - name: Test Connection
+        run: |
+          sql ${DB_USER}/${DB_PASSWORD}@mydb_high "select sysdate from dual;"
 
       - name: Run schema.sql
         run: |
