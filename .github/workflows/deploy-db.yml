@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DB_USER: admin
-      DB_PASSWORD: Chennai
-      DB_SERVICE: 1212@geetha_high
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_SERVICE: ${{ secrets.DB_SERVICE }}
 
     steps:
       - name: Checkout repository
@@ -47,15 +47,15 @@ jobs:
 
       - name: Test Connection
         run: |
-          sql admin/"Ramleela2412!"@geetha_high
+          sql ${DB_USER}/"${DB_PASSWORD}"@${DB_SERVICE}
       - name: Run schema.sql
         run: |
-          sql admin/"Ramleela2412!"@geetha_high @db/schema.sql
+          sql ${DB_USER}/"${DB_PASSWORD}"@${DB_SERVICE} @db/schema.sql
 
       - name: Run seed.sql
         run: |
-          sql admin/"Ramleela2412!"@geetha_high @db/seed.sql
+          sql ${DB_USER}/"${DB_PASSWORD}"@${DB_SERVICE} @db/seed.sql
 
       - name: Run verify.sql
         run: |
-          sql admin/"Chennai@1212"@geetha_high @db/verify.sql
+          sql ${DB_USER}/"${DB_PASSWORD}"@${DB_SERVICE} @db/verify.sql
