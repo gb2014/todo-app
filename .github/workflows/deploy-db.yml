@@ -47,14 +47,14 @@ jobs:
 
       - name: Test Connection
         run: |
-          sql admin/"Chennai@1212"@geetha_high
+          sql admin/"Ramleela2412!"@geetha_high
       - name: Run schema.sql
         run: |
-          sql admin/"Chennai@1212"@geetha_high @db/schema.sql
+          sql admin/"Ramleela2412!"@geetha_high @db/schema.sql
 
       - name: Run seed.sql
         run: |
-          sql admin/"Chennai@1212"@geetha_high @db/seed.sql
+          sql admin/"Ramleela2412!"@geetha_high @db/seed.sql
 
       - name: Run verify.sql
         run: |
