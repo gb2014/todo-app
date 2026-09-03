@@ -47,7 +47,7 @@ jobs:
 
       - name: Test Connection
         run: |
-          sql admin/"Chennai@1212"@geeth_high
+          sql admin/"Chennai@1212"@geetha_high
       - name: Run schema.sql
         run: |
           sql admin/"Chennai@1212"@geetha_high @db/schema.sql
