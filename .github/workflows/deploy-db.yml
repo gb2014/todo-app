@@ -29,6 +29,10 @@ jobs:
           wget https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip
           unzip sqlcl-latest.zip
           echo "$PWD/sqlcl/bin" >> $GITHUB_PATH
+      - name: Verify SQLcl Installation
+        run: |
+          which sql
+          sql -version
 
       - name: Run schema.sql
         run: |
