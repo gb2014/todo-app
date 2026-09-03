@@ -31,4 +31,3 @@ INSERT INTO TODOS
 VALUES (5, 3, 'Team meeting', 'OPEN', SYSDATE);
 
 COMMIT;
-
