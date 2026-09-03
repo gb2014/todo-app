@@ -47,7 +47,7 @@ jobs:
 
       - name: Test Connection
         run: |
-          sql ${DB_USER}/${DB_PASSWORD}@mydb_high "select sysdate from dual;"
+          sql ${DB_USER}/${DB_PASSWORD}@geetha_high "select sysdate from dual;"
 
       - name: Run schema.sql
         run: |
